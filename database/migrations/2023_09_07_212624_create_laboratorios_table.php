@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('laboratorios', function (Blueprint $table) {
             $table->id();
             $table->string('archivo');
-            $table->unsignedBigInteger('pacientes_id')->nullable();
-            $table->foreign('pacientes_id')->references('id')->on('pacientes')
+            $table->unsignedBigInteger('paciente_id')->nullable();
+            $table->foreign('paciente_id')->references('id')->on('pacientes')
             -> onDelete('set null');
             $table->timestamps();
         });
