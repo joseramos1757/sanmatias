@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('examenfis');
             $table->text('laboratorio');
             $table->text('diagnostico');
+            $table->text('tratamiento');
             $table->timestamps();
             $table->timestamps();
         });
