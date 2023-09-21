@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('nombre',45);
             $table->string('paterno',45);
             $table->string('materno',45);
+            $table->integer('edad');
+            $table->string('sexo',45);
             $table->string('estadocivil',45);
             $table->string('ocupacion',45);
             $table->integer('celular');

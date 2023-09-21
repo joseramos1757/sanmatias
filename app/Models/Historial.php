@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Historial extends Model
 {
     use HasFactory;
+
+    public function medico(){
+        return $this->belongsTo('App\Models\Medico');
+    }
+    public function paciente(){
+        return $this->belongsTo('App\Models\Paciente');
+    }
+    public function diagnosticos(){
+        return $this->hasMany('App\Models\Diagnostico');
+    }
+    
 }

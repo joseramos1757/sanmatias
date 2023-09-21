@@ -22,9 +22,13 @@ return new class extends Migration
             $table->text('anamnesis');
             $table->text('examenfis');
             $table->text('laboratorio');
-            $table->text('diagnostico');
             $table->text('tratamiento');
-            $table->timestamps();
+            $table->unsignedBigInteger('paciente_id')->nullable();
+            $table->unsignedBigInteger('medico_id')->nullable();
+            $table->foreign('paciente_id')->references('id')->on('pacientes')
+            ->onDelete('set null');
+            $table->foreign('medico_id')->references('id')->on('medicos')
+            ->onDelete('set null');
             $table->timestamps();
         });
     }

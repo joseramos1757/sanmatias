@@ -12,5 +12,8 @@ class Medico extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+    public function historials(){
+        return $this->hasMany('App\Models\Historial');
+    }
     
 }
