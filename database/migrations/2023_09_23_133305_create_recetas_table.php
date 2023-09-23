@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('diagnosticos', function (Blueprint $table) {
+        Schema::create('recetas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->timestamps();     
+            $table->string('descripción');
+            $table->integer('cantidad',10);
+            $table->foreign('paciente_id')->references('id')->on('pacientes')
+            ->onDelete('set null');
+            $table->timestamps();
         });
     }
 
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('diagnosticos');
+        Schema::dropIfExists('recetas');
     }
 };

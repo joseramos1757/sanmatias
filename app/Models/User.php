@@ -67,8 +67,8 @@ class User extends Authenticatable
     public function medico(){
         return $this->hasOne('App\Models\Medico');
     }
-    public function role(){
-        return $this->hasOne('App\Models\Role');
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
     }
     
 }

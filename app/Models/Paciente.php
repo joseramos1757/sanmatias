@@ -16,4 +16,7 @@ class Paciente extends Model
     public function historials(){
         return $this->hasMany('App\Models\Historial');
     }
+    public function medicos(){
+        return $this->belongsToMany('App\Models\Medico');
+    }
 }

@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Diagnostico extends Model
+class Receta extends Model
 {
     use HasFactory;
-    public function historial(){
-        return $this->belongsTo('App\Models\Historial');
-    }
-    
 }
