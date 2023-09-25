@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('descripción');
             $table->integer('cantidad',10);
+            $table->unsignedBigInteger('paciente_id')->nullable();
             $table->foreign('paciente_id')->references('id')->on('pacientes')
             ->onDelete('set null');
             $table->timestamps();

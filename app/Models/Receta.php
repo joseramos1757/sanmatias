@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Receta extends Model
 {
     use HasFactory;
+    public function paciente(){
+        return $this->belongsTo('App\Models\Paciente');
+    }
 }

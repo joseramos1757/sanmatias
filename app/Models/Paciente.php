@@ -19,4 +19,7 @@ class Paciente extends Model
     public function medicos(){
         return $this->belongsToMany('App\Models\Medico');
     }
+    public function recetas(){
+        return $this->hasMany('App\Models\Receta');
+    }
 }
