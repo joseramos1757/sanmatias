@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Diagnostico extends Model
 {
     use HasFactory;
-    public function historial(){
-        return $this->belongsTo('App\Models\Historial');
+    public function historials(){
+        return $this->belongsToMany('App\Models\Historial');
     }
-    
+    public function reportes(){
+        return $this->belongsToMany('App\Models\Reporte');
+    }
 }

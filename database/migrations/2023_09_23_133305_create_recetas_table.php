@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('recetas', function (Blueprint $table) {
             $table->id();
             $table->string('descripción');
-            $table->integer('cantidad',10);
+            $table->integer('cantidad');
             $table->unsignedBigInteger('paciente_id')->nullable();
             $table->foreign('paciente_id')->references('id')->on('pacientes')
             ->onDelete('set null');

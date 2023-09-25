@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reporte extends Model
 {
     use HasFactory;
+    public function diagnosticos(){
+        return $this->belongsToMany('App\Models\Diagnostico');
+    }
 }

@@ -16,7 +16,7 @@ class Historial extends Model
         return $this->belongsTo('App\Models\Paciente');
     }
     public function diagnosticos(){
-        return $this->hasMany('App\Models\Diagnostico');
+        return $this->belongsToMany('App\Models\Diagnostico');
     }
     
 }
