@@ -107,9 +107,9 @@
   <div
     class="w-full p-4 text-center"
     style="background-color: rgba(0, 0, 0, 0.2)">
-    © 2023 Copyright:
+    © 2023 :
     <a class="text-whitehite" href="https://tailwind-elements.com/"
-      >Tailwind Elements</a
+      >Sistema Web realizado por José Américo Ramos Terán</a
     >
   </div>
 </footer>
