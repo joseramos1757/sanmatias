@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get(' ', function () {
-    return "hola jart administrador";
-});
+use App\Http\Controllers\Admin\HomeController;
+//la ruta se simplifica por que se le llamara atravez del controlador
+Route::get('',[HomeController::class,'index']);
