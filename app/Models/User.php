@@ -70,4 +70,14 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Medico');
     }
 
+    //para adminlte
+    public function adminlte_image(){
+        return "https://picsum.photos/300/300";
+    }
+
+    public function adminlte_desc(){
+        return "ADMINISTRADOR";
+    }
+
+
 }
