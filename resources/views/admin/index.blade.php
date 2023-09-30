@@ -2,6 +2,7 @@
 @extends('adminlte::page')
 @section('title', 'Dashboard')
 
+
 @section('content_header')
     <h1>ADMINISTRADOR</h1>
 @stop
@@ -15,5 +16,12 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    {{--<script> console.log('Hi!'); </script>--}}
+    <script>
+       Swal.fire(
+           'You clicked the button!',
+           'Good job!',
+           'success'
+)
+    </script>
 @stop
