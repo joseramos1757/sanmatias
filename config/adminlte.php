@@ -192,7 +192,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-light-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-blue navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
@@ -312,9 +312,9 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
+            'text'        => 'PANEL DE CONTROL',
             'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-chart-line',
             'label'       => 4,
             'label_color' => 'success',
         ],
@@ -480,8 +480,8 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.all.min.js',
                 ],
             ],
         ],
