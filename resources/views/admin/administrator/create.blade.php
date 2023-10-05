@@ -4,11 +4,11 @@
 
 
 @section('content_header')
-    <h1>ADMINISTRACIÓN DE USUARIOS DEL SISTEMA</h1>
+    <h1>CREAR ADMINISTRADOR</h1>
 @stop
 
 @section('content')
-    <p></p>
+    <p>PAGINA DONDE SE CREA EL ADMINISTRADOR</p>
 @stop
 
 @section('css')

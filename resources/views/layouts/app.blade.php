@@ -7,6 +7,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!--titulo de la plantilla que se encuentra en .env-->
         <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="icon" href="{{ URL::asset('favicons/favicon.ico') }}" type="image/x-icon"/>
+        
        <!--llama a la fuente-->
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
