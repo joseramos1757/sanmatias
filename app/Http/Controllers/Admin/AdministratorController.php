@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Administrator;
+use App\Models\User;
 class AdministratorController extends Controller
 {
     /**
@@ -12,7 +13,8 @@ class AdministratorController extends Controller
      */
     public function index()
     {
-        return view('admin.administrator.index');
+        $administrators =Administrator::all();
+        return view('admin.administrator.index',compact('administrators'));
     }
 
     /**
@@ -20,7 +22,8 @@ class AdministratorController extends Controller
      */
     public function create()
     {
-        return view('admin.administrator.create');
+        $users = User::pluck('name','id');
+        return view('admin.administrator.create',compact('users '));
     }
 
     /**
