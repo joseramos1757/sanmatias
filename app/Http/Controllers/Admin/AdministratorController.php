@@ -33,8 +33,8 @@ class AdministratorController extends Controller
     public function store(Request $request)
     {
         $request-> validate([
-            'ci'=>'required',
-            'nombre'=>'required',
+            'ci'=>'required|numeric',
+            'nombre'=>'required | regex:/^[A-Z]+$/',
             'paterno'=>'required',
             'materno'=>'',
             'celular'=>'required',
@@ -43,7 +43,10 @@ class AdministratorController extends Controller
             'user_id'=>'required | unique:administrators',
 
         ]);
-        return $request -> all();
+        //sirve para mostrar los objetos que se estan enviando
+        //return $request -> all();
+        $Administrator = Administrator::create($request->all());
+        return redirect()->route('admin.administrators.edit',$Administrator);
     }
 
     /**
@@ -77,4 +80,5 @@ class AdministratorController extends Controller
     {
         //
     }
+    
 }
