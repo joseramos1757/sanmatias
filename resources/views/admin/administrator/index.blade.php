@@ -13,8 +13,8 @@
                     <a href="{{route('admin.administrators.create')}}" class="btn btn-primary">AGREGAR ADMINISTRADOR</a>
                 </div>
             <div class="card-body">
-                <table class="table table-striped table-responsive>
-                    <thead>
+                <table class="table table-striped table-responsive">
+                    <thead class="text-center">
                         <tr>
                             <th>CI</th>
                             <th>NOMBRE</th>
@@ -23,7 +23,7 @@
                             <th>CELULAR</th>
                             <th>FECHA DE NAC</th>
                             <th>DIRECCION</th>
-                            <th colspan="2"></th>
+                            <th colspan="2">OPCIONES</th>
                         </tr>
 
                     </thead>

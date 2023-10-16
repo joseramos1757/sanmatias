@@ -22,8 +22,9 @@ class AdministratorController extends Controller
      */
     public function create()
     {
-        $users = User::pluck('name','id');
-        return view('admin.administrator.create',compact('users '));
+    //se orena en descendente los datos para el select 
+            $users = User::orderBy('id', 'desc')->pluck('name','id');  
+        return view('admin.administrator.create',compact('users'));
     }
 
     /**
@@ -31,7 +32,18 @@ class AdministratorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request-> validate([
+            'ci'=>'required',
+            'nombre'=>'required',
+            'paterno'=>'required',
+            'materno'=>'',
+            'celular'=>'required',
+            'fechanac'=>'required',
+            'direccion'=>'required',
+            'user_id'=>'required | unique:administrators',
+
+        ]);
+        return $request -> all();
     }
 
     /**

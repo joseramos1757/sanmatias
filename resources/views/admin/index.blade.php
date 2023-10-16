@@ -14,14 +14,3 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
-
-@section('js')
-    {{--<script> console.log('Hi!'); </script>--}}
-    <script>
-       Swal.fire(
-           'You clicked the button!',
-           'Good job!',
-           'success'
-)
-    </script>
-@stop
