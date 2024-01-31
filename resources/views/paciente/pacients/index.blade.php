@@ -1,14 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
-        
-    </x-slot>
- 
 
-    <div class="container ml-auto mr-auto flex items-center justify-center mt-6">
-        <div class="w-full md:w-full rounded-3xl ">
+
+    <div class="container ml-auto mr-auto flex mt-6 ">
+        <div class="w-full md:w-full">
          
           <!-- Formulario -->
-          <form class="bg-white px-8 pt-6 pb-8 mb-4 ">
+          <form class="bg-white px-8 pt-6 pb-8 mb-4">
             <div class="mb-4">
                 <div class="mt-2 mb-6 font-semibold text-3xl text-gray-800 leading-tight w-full justify-center">
                     <center><h1>FORMULARIO DE REGISTRO DE PACIENTES</h1></center>
@@ -92,7 +89,7 @@
               </div>
            
             <div class="flex items-center  mt-8">
-              <button class="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"> REGISTRAR PACIENTE </button>
+              <button class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"> REGISTRAR PACIENTE </button>
             </div>
           </form>              
           
