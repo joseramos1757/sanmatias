@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Paciente\PacienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,8 @@ Route::get('prueba', function(){
 Route::get('no-autorizado', function(){
     return "usted no es mayor de edad";
 });
+
+Route::get('pacients',[PacienteController::class,'index'])->name('paciente.home');
+Route::resource('pacients', PacienteController::class)->names('paciente.pacients');
+
+
