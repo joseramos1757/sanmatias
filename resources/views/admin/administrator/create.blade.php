@@ -16,7 +16,7 @@
                     <div class="form-group col-sm-12 col-md-6">
                         
                         {!! Form::label('ci','CARNET DE IDENTIDAD') !!}
-                        {!! Form::text('ci', null, ['class'=>'form-control','placeholder'=>'Ingrese numero de carnet','pattern' => '[0-9]+', 'inputmode'=>'numeric']) !!}
+                        {!! Form::text('ci', null, ['class'=>'form-control','placeholder'=>'INGRESE NUMERO DE CARNET','pattern' => '[0-9]+']) !!}
                         
                         @error('ci')
                             <span class="text-danger">{{$message}}</span>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group col-sm-12 col-md-6">
                         {!! Form::label('celular','CELULAR') !!}
-                        {!! Form::text('celular', null, ['class'=>'form-control','placeholder'=>'Ingrese el numero de celular']) !!}
+                        {!! Form::text('celular', null, ['class'=>'form-control','placeholder'=>'INGRESE EL NUMERO DE CELULAR']) !!}
                         @error('celular')
                         <span class="text-danger">{{$message}}</span>
                     @enderror

@@ -23,7 +23,7 @@ class AdministratorController extends Controller
     public function create()
     {
     //se orena en descendente los datos para el select 
-            $users = User::orderBy('id', 'desc')->pluck('name','id');  
+        $users = User::orderBy('id', 'desc')->pluck('name','id');  
         return view('admin.administrator.create',compact('users'));
     }
 
@@ -34,12 +34,11 @@ class AdministratorController extends Controller
     {
         $request-> validate([
             'ci'=>'required|numeric',
-            'nombre'=>'required | regex:/^[A-Z]+$/',
+            'nombre'=>'required',
             'paterno'=>'required',
             'materno'=>'',
             'celular'=>'required',
             'fechanac'=>'required',
-            'direccion'=>'required',
             'user_id'=>'required | unique:administrators',
 
         ]);
@@ -62,7 +61,7 @@ class AdministratorController extends Controller
      */
     public function edit(Administrator $administrator)
     {
-        return view('admin.administrator.edit',compact('administrator'));
+
     }
 
     /**
@@ -70,7 +69,7 @@ class AdministratorController extends Controller
      */
     public function update(Request $request,Administrator $administrator)
     {
-        //
+
     }
 
     /**

@@ -33,13 +33,13 @@
             <img class="hidden h-14 w-auto lg:block" src="https://imagizer.imageshack.com/v2/821x411q70/924/uqoivC.png" alt="Your Company">
           </a>
           @auth
-          <div class="hidden sm:ml-6 sm:block">
+          <div class="hidden sm:ml-6 sm:block mt-2">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Pacientes </a>
-              <a href="#" class="text-gray-200 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Laboratorios</a>
-              <a href="#" class="text-gray-200 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Reportes</a>
-              <a href="#" class="text-gray-200 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Citas Medicas</a>
+              <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold ">PACIENTES</a>
+              <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold">HISTORIAL CLÍNICO</a>
+              <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold">LABORATORIOS</a>
+              <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold">REPORTES EPIDEMIOLÓGICOS</a>
             </div>
           </div>
           @endauth
@@ -97,10 +97,10 @@
     <div class="sm:hidden" id="mobile-menu" x-show="open" x-on:click.away="open=false">
       <div class="space-y-1 px-2 pb-3 pt-2">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Pacientes</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Laboratorios</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Informes</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Citas Medicas</a>
+        <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold ">PACIENTES</a>
+        <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold">HISTORIAL CLÍNICO</a>
+        <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold">LABORATORIOS</a>
+        <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold">REPORTES EPIDEMIOLÓGICOS</a>
       </div>
     </div>
     @endauth

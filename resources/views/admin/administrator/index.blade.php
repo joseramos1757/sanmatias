@@ -22,7 +22,6 @@
                             <th>MATERNO</th>
                             <th>CELULAR</th>
                             {{--<th class="text-sm">FECHA DE NAC</th>--}}
-                            <th>DIRECCION</th>
                             <th>USUARIO</th>
                             <th>CORREO ELECTRONICO</th>
                             <th colspan="2">OPCIONES</th>
@@ -38,7 +37,6 @@
                                     <td>{{$administrator->materno}}</td>
                                     <td>{{$administrator->celular}}</td>
                                     {{--<td>{{$administrator->fechanac}}</td>--}}
-                                    <td>{{$administrator->direccion}}</td>
                                     <td>{{$administrator->user->name}}</td>
                                     <td>{{$administrator->user->email}}</td>
 
