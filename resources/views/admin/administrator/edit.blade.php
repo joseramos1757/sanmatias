@@ -1,29 +1,22 @@
 
-@extends('adminlte::page')
-@section('title', 'Dashboard')
+    
+    @extends('adminlte::page')
+    @section('title', 'Dashboard')
 
 
-@section('content_header')
-    <h1>EDITAR ADMINISTRADOR</h1>
-@stop
+    @section('content_header')
+        <h1>ACTUALIZAR DATOS    </h1>
+    @stop
 
-@section('content')
-    <p>PAGINA DONDE SE CREA EL ADMINISTRADOR</p>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('content')
+    @section('content')
         <div class="card">
             <div class="card-body">
-                {!! Form::model($administrator,['route' => ['admin.administrators.update', $administrator],'method'=>'put']) !!}
+                {!! Form::model($administrator,['route' => ['admin.administrators.update', $administrator], 'method'=>'put']) !!}
                 <div class="row mx-auto">
                     <div class="form-group col-sm-12 col-md-6">
                         
                         {!! Form::label('ci','CARNET DE IDENTIDAD') !!}
-                        {!! Form::text('ci', null, ['class'=>'form-control','placeholder'=>'Ingrese numero de carnet','pattern' => '[0-9]+']) !!}
+                        {!! Form::text('ci', null, ['class'=>'form-control','placeholder'=>'INGRESE NUMERO DE CARNET','pattern' => '[0-9]+']) !!}
                         
                         @error('ci')
                             <span class="text-danger">{{$message}}</span>
@@ -50,7 +43,7 @@
                     </div>
                     <div class="form-group col-sm-12 col-md-6">
                         {!! Form::label('celular','CELULAR') !!}
-                        {!! Form::text('celular', null, ['class'=>'form-control','placeholder'=>'Ingrese el numero de celular']) !!}
+                        {!! Form::text('celular', null, ['class'=>'form-control','placeholder'=>'INGRESE EL NUMERO DE CELULAR']) !!}
                         @error('celular')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -68,19 +61,14 @@
                         @error('direccion')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
-                    </div>
-                <!-- Campos del usuario -->
-      
-                        {{ Form::submit('ACTUALIZAR CATEGORIA', ['class' => 'btn btn-primary']) }}
+           
+                    <br>  
+                    {{ Form::submit('ACTUALIZAR ADMINISTRADOR', ['class' => 'btn btn-primary']) }}
 
-            
                 </div>
-                
                 {!! Form::close() !!}
             </div>
-
+            
         </div>
     @stop
 
-
-@stop

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Paciente;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Paciente;
 
 class PacienteController extends Controller
 {
@@ -12,7 +13,8 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        return view('paciente.pacients.index');
+        $pacientes=Paciente::all(); 
+        return view('paciente.pacients.index', compact('pacientes'));    
     }
 
     /**
@@ -28,29 +30,42 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request-> validate([
+            'ci'=>'required|numeric',
+            'nombre'=>'required',
+            'paterno'=>'required',
+            'materno'=>'',
+            'celular'=>'required',
+            'fechanac'=>'required',
+            'observaciones'=>''
+
+        ]);
+
+      $Paciente = Paciente::create($request->all());
+        return redirect()->route('paciente.pacients.show' , $Paciente);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $pacient)
+    public function show($paciente)
     {
-        return view('paciente.pacients.show',compact('pacient'));
+     
+        return view('paciente.pacients.edit',compact('paciente'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $pacient)
+    public function edit(Paciente $paciente)
     {
-        //
+        return view('paciente.pacients.edit', compact('paciente'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Paciente $paciente)
     {
         //
     }
@@ -62,4 +77,6 @@ class PacienteController extends Controller
     {
         //
     }
+    
+
 }

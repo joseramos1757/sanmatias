@@ -1,100 +1,62 @@
 <x-app-layout>
 
+  <div class="container mx-auto mt-6">
+    <div class="w-full px-6 py-4 rounded-lg bg-white">
+      <div class="font-bold text-2 text-center text-2xl mt-2 mb-2">PACIENTES REGISTRADOS</div>
+      <div class="w-full px-6 py-4 rounded-lg bg-white mb-6">
+        <a href="{{route('paciente.pacients.create')}}" class="inline-block bg-green-700 px-4 py-2 rounded-md items-center">
+          <button class="text-white text-center">REGISTRAR PACIENTE NUEVO</button></a>
+    </div>
+    <div class="container mx-auto my-8">
+      <form action="/buscar" method="post" class="flex items-center">
+          @csrf
+          <input type="text" name="busqueda" placeholder="Buscar" class="border p-2 rounded-l">
+          <button type="submit" class="bg-blue-500 text-white p-2 rounded-r">BUSCAR POR CARNET</button>
+      </form>
+  </div>
+      <table class="min-w-full">
+        <thead>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th class="py-2 px-4">CARNET</th>
+            <th class="py-2 px-4">NOMBRE(S)</th>
+            <th class="py-2 px-4">APELLIDO PATERNO</th>
+            <th class="py-2 px-4">APELLIDO MATERNO</th>
+            <th class="py-2 px-4">SEXO</th>
+            <th class="py-2 px-4">CELULAR</th>
+            <th class="py-2 px-4 border-b">EDAD</th>
+            <th class="colspan-2">OPERACIONES</th>
 
-    <div class="container ml-auto mr-auto flex mt-6 ">
-        <div class="w-full md:w-full">
-         
-          <!-- Formulario -->
-          <form class="bg-white px-8 pt-6 pb-8 mb-4">
-            <div class="mb-4">
-                <div class="mt-2 mb-6 font-semibold text-3xl text-gray-800 leading-tight w-full justify-center">
-                    <center><h1>FORMULARIO DE REGISTRO DE PACIENTES</h1></center>
-                </div>
-              <div class="grid grid-flow-row sm:grid-flow-col gap-3 ">
-             
-                <div class="sm:col-span-4 justify-center">
-                    <label for="carnet" class="block text-sm font-semibold text-gray-600">CARNET DE IDENTIDAD:</label>
-                    <input type="text" id="carnet" name="carnet" class="w-full mt-1 p-2 border rounded-md" required>
-                </div>
-                <div class="sm:col-span-4 justify-center">
-                    <label for="carnet" class="block text-sm font-semibold text-gray-600">NOMBRE(S):</label>
-                    <input type="text" id="nombre" name="nombre" class="w-full mt-1 p-2 border rounded-md" required>
-                </div>
-                <div class="sm:col-span-4 justify-center">
-                    <label for="carnet" class="block text-sm font-semibold text-gray-600">APELLIDO PATERNO:</label>
-                    <input type="text" id="paterno" name="paterno" class="w-full mt-1 p-2 border rounded-md" required>
-                </div>
-                <div class="sm:col-span-4 justify-center">
-                    <label for="carnet" class="block text-sm font-semibold text-gray-600">APELLIDO MATERNO:</label>
-                    <input type="text" id="materno" name="materno" class="w-full mt-1 p-2 border rounded-md" required>
-                </div>
-                <div class="sm:col-span-4 justify-center">
-                    <label for="carnet" class="block text-sm font-semibold text-gray-600">CELULAR:</label>
-                    <input type="text" id="cel" name="cel" class="w-full mt-1 p-2 border rounded-md" required>
-                </div>
-              
-              </div>
-            </div>
-            <div class="mb-4">
-                <div class="grid grid-flow-row sm:grid-flow-col gap-3">
-                    <div class="sm:col-span-8 justify-center">
-                      <label for="carnet" class="block text-sm font-semibold text-gray-600">DIRECCIÓN:</label>
-                      <input type="text" id="dir" name="dir" class="w-full mt-1 p-2 border rounded-md" required>
-                  </div>
-                  <div class="sm:col-span-4 justify-center">
-                    <label for="estado_civil" class="block text-sm font-semibold text-gray-600">ESTADO CIVIL:</label>
-                    <select id="estado_civil" name="estado_civil" class="w-full mt-1 p-2 border rounded-md" required>
-                        <option value="" disabled selected>SELECCIONE UNA OPCIÓN</option>
-                        <option value="Casado">SOLTERO (A)</option>
-                        <option value="Soltero">CASADO (A)</option>
-                        <option value="Divorciado">DIVORCIADO (A)</option>
-                        <option value="Divorciado">VIUDO (A)</option>
-                    </select>
-                </div>
-    
-                    <div class="mb-3">
-                        <label class="block text-sm font-semibold text-gray-600">SEXO:</label>
-                        <div class="mt-1">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="sexo" value="Masculino" class="form-radio" required>
-                                <span class="ml-1 text-sm">MASCULINO</span>
-                            </label>
-                            <label class="inline-flex items-center ml-6">
-                                <input type="radio" name="sexo" value="Femenino" class="form-radio" required>
-                                <span class="ml-1 text-sm" >FEMENINO</span>
-                            </label>
-                        </div>
-                    </div>
-           
-                </div>
-              </div>
-              <div class="mb-4">
-                <div class="grid grid-flow-row sm:grid-flow-col gap-3">
-             
-                  <div class="sm:col-span-4 justify-center">
-                    <label for="fecha_nacimiento" class="block text-sm font-semibold text-gray-600">FECHA DE NACIMIENTO:</label>
-                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="w-full mt-1 p-2 border rounded-md" required>
-                     </div>
-                  <div class="sm:col-span-4 justify-center">
-                      <label for="carnet" class="block text-sm font-semibold text-gray-600">OCUPACIÓN:</label>
-                      <input type="text" id="ocupacion" name="ocupacion" class="w-full mt-1 p-2 border rounded-md" required>
-                  </div>
-        
-                  <div class="sm:col-span-8 justify-center">
-                      <label for="carnet" class="block text-sm font-semibold text-gray-600">OBSERVACIONES:</label>
-                      <input type="text" id="obs" name="obs" class="w-full mt-1 p-2 border rounded-md" required>
-                  </div>
-                
-                </div>
-              </div>
-           
-            <div class="flex items-center  mt-8">
-              <button class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"> REGISTRAR PACIENTE </button>
-            </div>
-          </form>              
-          
-        </div>
+            <!-- Agrega más columnas según sea necesario -->
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($pacientes as $key => $paciente)
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <td class="py-2 px-4 border-b">{{$paciente->ci}}</td>
+            <td class="py-2 px-4 border-b">{{$paciente->nombre}}</td>
+            <td class="py-2 px-4 border-b">{{$paciente->paterno}}</td>
+            <td class="py-2 px-4 border-b">{{$paciente->materno}}</td>
+            <td class="py-2 px-4 border-b">{{$paciente->sexo}}</td>
+            <td class="py-2 px-4 border-b">{{$paciente->celular}}</td>
+            <td class="py-2 px-4 border-b">{{$paciente->edad}}</td>
+            <td>
+              <a href="{{ route('paciente.pacients.edit', $paciente) }}" class="inline-block bg-blue-500 px-4 py-2 rounded-md h-6  flex items-center">
+                <button class="text-white">EDITAR</button>
+            </a>
+            </td>
+            <td>
+              <a href="#" class="inline-block bg-green-700 px-4 py-2 rounded-md h-6 flex items-center">
+                <button class="text-white text-center">RECONSULTA</button></a>
+            </td>
+            <!-- Agrega más celdas según sea necesario -->
+          </tr>
+          @endforeach
+      
+          <!-- Agrega más filas según sea necesario -->
+        </tbody>
+      </table>
+    </div>
 
-      </div> 
+  </div>
 
 </x-app-layout>

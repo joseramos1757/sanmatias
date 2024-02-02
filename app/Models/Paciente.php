@@ -9,6 +9,8 @@ class Paciente extends Model
 {
     use HasFactory;
 
+    protected  $fillable = ['ci','nombre', 'paterno', 'materno', 'celular','sexo','direccion','ocupacion','edad','observaciones','estadocivil','fechanac',];
+
     //relacion uno a muchos con 
     public function laboratorios(){
         return $this->hasMany('App\Models\Laboratorio');

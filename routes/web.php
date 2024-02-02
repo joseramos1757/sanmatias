@@ -36,5 +36,4 @@ Route::get('no-autorizado', function(){
 
 Route::get('pacients',[PacienteController::class,'index'])->name('paciente.home');
 Route::resource('pacients', PacienteController::class)->names('paciente.pacients');
-
-
+//Route::get('/buscar_paciente', [PacienteController::class, 'buscarPaciente'])->name('buscar_paciente');

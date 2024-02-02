@@ -62,6 +62,7 @@ class AdministratorController extends Controller
     public function edit(Administrator $administrator)
     {
 
+        return view('admin.administrator.edit', compact('administrator'));
     }
 
     /**
@@ -69,7 +70,20 @@ class AdministratorController extends Controller
      */
     public function update(Request $request,Administrator $administrator)
     {
+        $request-> validate([
+            'ci'=>'required|numeric',
+            'nombre'=>'required',
+            'paterno'=>'required',
+            'materno'=>'',
+            'celular'=>'required',
+            'fechanac'=>'required',
 
+        ]);
+        //sirve para mostrar los objetos que se estan enviando
+        //return $request -> all();
+        $administrator -> update($request->all());
+        return redirect()->route('admin.administrators.edit',$administrator);
+   
     }
 
     /**
