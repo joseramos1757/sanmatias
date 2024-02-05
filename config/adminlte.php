@@ -310,15 +310,10 @@ return [
         ],
         [
             'text'        => 'PANEL DE CONTROL',
-            'url'         => 'admin',
+            'route'         => 'register',
             'icon'        => 'fas fa-chart-line',   
         ],
-        ['header' => 'PRINCIPAL'],
-        [
-            'text' => 'Usuarios',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-users',
-        ],
+ 
         ['header' => 'TIPOS DE USUARIOS'],
         [
             'text' => 'Administradores',
@@ -327,12 +322,12 @@ return [
         ],
         [
             'text' => 'Medicos',
-            'url'  => 'admin/settings',
+            'route'  => 'admin.medics.index',
             'icon' => 'fas fa-w fa-stethoscope',
         ],
         [
             'text' => 'Recepcionistas',
-            'url'  => 'admin/settings',
+            'route'  => 'admin.receptionists.index',
             'icon' => 'fas fa-w fa-id-card',
         ],
        

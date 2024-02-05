@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Paciente\PacienteController;
-
+use Laravel\Fortify\Features;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +35,11 @@ Route::get('prueba', function(){
 Route::get('no-autorizado', function(){
     return "usted no es mayor de edad";
 });
+Route::middleware(['guest'])->get('/register', function () {
+    return view('auth.register');
+})->name('register');
 
 Route::get('pacients',[PacienteController::class,'index'])->name('paciente.home');
 Route::resource('pacients', PacienteController::class)->names('paciente.pacients');
 //Route::get('/buscar_paciente', [PacienteController::class, 'buscarPaciente'])->name('buscar_paciente');
+

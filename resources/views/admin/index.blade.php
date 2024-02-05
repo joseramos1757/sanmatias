@@ -8,7 +8,12 @@
 @stop
 
 @section('content')
-    <p></p>
+<div class="content-wrapper">
+    <!-- Contenido de la página -->
+
+ 
+</div>
+
 @stop
 
 @section('css')

@@ -28,7 +28,7 @@
           @endauth
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-          <a href="{{route('welcome')}}" class="flex flex-shrink-0 items-center">
+          <a href="{{route('dashboard')}}" class="flex flex-shrink-0 items-center">
             <img class="block h-14 w-auto lg:hidden" src="https://imagizer.imageshack.com/v2/821x411q70/924/uqoivC.png" alt="Your Company">
             <img class="hidden h-14 w-auto lg:block" src="https://imagizer.imageshack.com/v2/821x411q70/924/uqoivC.png" alt="Your Company">
           </a>
@@ -97,7 +97,7 @@
     <div class="sm:hidden" id="mobile-menu" x-show="open" x-on:click.away="open=false">
       <div class="space-y-1 px-2 pb-3 pt-2">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold ">PACIENTES</a>
+        <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bTES</a>
         <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold">HISTORIAL CLÍNICO</a>
         <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold">LABORATORIOS</a>
         <a href="#" class="text-white hover:bg-blue-950 hover:text-white block rounded-md px-3 py-2 text-base font-sans font-bold">REPORTES EPIDEMIOLÓGICOS</a>

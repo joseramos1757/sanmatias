@@ -48,7 +48,7 @@
 
             <div class="flex items-center justify-center mt-4 ">
                 <x-button class="ml-6">
-                    {{ __('REGISTRO') }}
+                    {{ __('REGISTRAR USUARIO') }}
                 </x-button>
             </div>
         </form>

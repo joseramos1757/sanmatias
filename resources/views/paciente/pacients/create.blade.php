@@ -5,6 +5,7 @@
         <div class="w-full md:w-full">
          
           <!-- Formulario -->
+
           {!! Form::open(['route' => 'paciente.pacients.store', 'class' => 'bg-white px-8 pt-6 pb-8 mb-4']) !!}
           <div class="mb-4">
               <div class="mt-2 mb-6 font-semibold text-3xl text-gray-800 leading-tight w-full justify-center">
