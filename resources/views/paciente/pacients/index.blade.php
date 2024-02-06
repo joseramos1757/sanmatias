@@ -15,47 +15,53 @@
         </button>
       </form>
     </div>
-  
+    @if(isset($message))
+    <div class="text-red-500">{{ $message }}</div> 
   </div>
-      <table class="min-w-full">
-        <thead>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th class="py-2 px-4">CARNET</th>
-            <th class="py-2 px-4">NOMBRE(S)</th>
-            <th class="py-2 px-4">APELLIDO PATERNO</th>
-            <th class="py-2 px-4">APELLIDO MATERNO</th>
-            <th class="py-2 px-4">SEXO</th>
-            <th class="py-2 px-4">CELULAR</th>
-            <th class="py-2 px-4">EDAD</th>
-            <th class="py-2 px-4" colspan="2">OPERACIONES</th>
-            <!-- Agrega más columnas según sea necesario -->
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($pacient as $paciente)
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <td class="py-2 px-4 border-b">{{$paciente->ci}}</td>
-            <td class="py-2 px-4 border-b">{{$paciente->nombre}}</td>
-            <td class="py-2 px-4 border-b">{{$paciente->paterno}}</td>
-            <td class="py-2 px-4 border-b">{{$paciente->materno}}</td>
-            <td class="py-2 px-4 border-b">{{$paciente->sexo}}</td>
-            <td class="py-2 px-4 border-b">{{$paciente->celular}}</td>
-            <td class="py-2 px-4 border-b">{{$paciente->edad}}</td>
-            <td>
-              <a href="{{ route('paciente.pacients.edit', $paciente) }}" class="inline-block bg-blue-500 px-4 py-2 rounded-md h-6  flex items-center">
-                <button class="text-white">EDITAR</button></a>
-            </td>
-            <td>
-              <a href="#" class="inline-block bg-green-700 px-4 py-2 rounded-md h-6 flex items-center">
-                <button class="text-white text-center">RECONSULTA</button></a>
-            </td>
-            <!-- Agrega más celdas según sea necesario -->
-          </tr>
-          @endforeach
-      
-          <!-- Agrega más filas según sea necesario -->
-        </tbody>
-      </table>
+
+
+@else
+<table class="min-w-full">
+  <thead>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+      <th class="py-2 px-4">CARNET</th>
+      <th class="py-2 px-4">NOMBRE(S)</th>
+      <th class="py-2 px-4">APELLIDO PATERNO</th>
+      <th class="py-2 px-4">APELLIDO MATERNO</th>
+      <th class="py-2 px-4">SEXO</th>
+      <th class="py-2 px-4">CELULAR</th>
+      <th class="py-2 px-4">EDAD</th>
+      <th class="py-2 px-4" colspan="2">OPERACIONES</th>
+      <!-- Agrega más columnas según sea necesario -->
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($pacient as $paciente)
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+      <td class="py-2 px-4 border-b">{{$paciente->ci}}</td>
+      <td class="py-2 px-4 border-b">{{$paciente->nombre}}</td>
+      <td class="py-2 px-4 border-b">{{$paciente->paterno}}</td>
+      <td class="py-2 px-4 border-b">{{$paciente->materno}}</td>
+      <td class="py-2 px-4 border-b">{{$paciente->sexo}}</td>
+      <td class="py-2 px-4 border-b">{{$paciente->celular}}</td>
+      <td class="py-2 px-4 border-b">{{$paciente->edad}}</td>
+      <td>
+        <a href="{{ route('paciente.pacients.edit', $paciente) }}" class="inline-block bg-blue-500 px-4 py-2 rounded-md h-6  flex items-center">
+          <button class="text-white">EDITAR</button></a>
+      </td>
+      <td>
+        <a href="#" class="inline-block bg-green-700 px-4 py-2 rounded-md h-6 flex items-center">
+          <button class="text-white text-center">RECONSULTA</button></a>
+      </td>
+      <!-- Agrega más celdas según sea necesario -->
+    </tr>
+    @endforeach
+
+    <!-- Agrega más filas según sea necesario -->
+  </tbody>
+</table>
+@endif
+     
     </div>
 
   </div>

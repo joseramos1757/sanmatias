@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Paciente;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Paciente;
+use Carbon\Carbon;
 
 class PacienteController extends Controller
 {
@@ -20,8 +21,12 @@ class PacienteController extends Controller
         $carnet = $request->input('carnet');
         $pacient = Paciente::where('ci', $carnet)->get();
     }
+        // Verifica si no hay resultados de la búsqueda
+        $message = (count($pacient) === 0 && $request->has('carnet'))
+        ? 'NO EXISTE PACIENTE CON ESE NUMERO DE CARNET'
+        : null;
 
-        return view('paciente.pacients.index',compact('pacient'));
+        return view('paciente.pacients.index',compact('pacient','message'));
     }
 
     /**
@@ -37,19 +42,46 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
+                       // Obtener datos del formulario
+    $requestData = $request->all();
+    // Calcular la edad a partir de la fecha de nacimiento  
+    $fechaNacimiento = Carbon::parse($requestData['fechanac']);
+    $edad = $fechaNacimiento->diffInYears(Carbon::now());
+
+    // Agregar la edad a los datos
+    $requestData['edad'] = $edad;
         $request-> validate([
-            'ci'=>'required|numeric',
+            'ci'=>'required|unique:pacientes|numeric',
             'nombre'=>'required',
             'paterno'=>'required',
-            'materno'=>'',
-            'celular'=>'required',
+            'materno'=>'nullable',
+            'celular' => ['required','numeric','between:60000000,79999999'],
+            //'edad'=>'required',
+            'sexo'=>'required',
+            'estadocivil'=>'required',
+            'ocupacion'=>'required',
             'fechanac'=>'required',
-            'observaciones'=>''
+            'direccion'=>'required',
+            'observaciones'=>'nullable'
 
         ]);
-
-      $pacient = Paciente::create($request->all());
-        return redirect()->route('paciente.pacients.show' , $pacient);
+          // Convertir a mayúsculas antes de guardar en la base de datos
+    $pacientData = [
+        'ci' => $request->input('ci'),
+        'nombre' => strtoupper($request->input('nombre')),
+        'paterno' => strtoupper($request->input('paterno')),
+        'materno' => strtoupper($request->input('materno')),
+        'celular' => $request->input('celular'),
+        'edad' => $edad,
+        'sexo' => $request->input('sexo'),
+        'estadocivil' => $request->input('estadocivil'),
+        'fechanac' =>  $request->input('fechanac'),
+        'ocupacion' => strtoupper($request->input('ocupacion')),
+        'direccion' => strtoupper($request->input('direccion')),
+        'observaciones' => strtoupper($request->input('observaciones'))
+    ];
+        $pacient = Paciente::create($pacientData);
+        return redirect()->route('paciente.pacients.edit' , $pacient);
     }
 
     /**
@@ -74,19 +106,60 @@ class PacienteController extends Controller
      */
     public function update(Request $request, Paciente $pacient)
     {
-        $request-> validate([
-            'ci'=>'required|numeric',
-            'nombre'=>'required',
-            'paterno'=>'required',
-            'materno'=>'',
-            'celular'=>'required',
-            'fechanac'=>'required',
-            'observaciones'=>''
+            // Obtener datos del formulario
+    $requestData = $request->all();
+    // Calcular la edad a partir de la fecha de nacimiento  
+    $fechaNacimiento = Carbon::parse($requestData['fechanac']);
+    $edad = $fechaNacimiento->diffInYears(Carbon::now());
 
+    // Agregar la edad a los datos
+    $requestData['edad'] = $edad;
+        
+        $request->validate([
+            'ci' => 'required|numeric|unique:pacientes,ci,' . $pacient->id,
+            'nombre' => 'required',
+            'paterno' => 'required',
+            'materno' => 'nullable',
+            'celular' => ['required','numeric','between:60000000,79999999'],
+            //'edad' => 'required',
+            'sexo' => 'required',
+            'estadocivil' => 'required',
+            'ocupacion' => 'required',
+            'fechanac' => 'required',
+            'direccion' => 'required',
+            'observaciones' => 'nullable'
         ]);
-
-      $pacient->update($request->all());
-        return redirect()->route('paciente.pacients.edit',$pacient);
+    
+        try {
+            // Convertir a mayúsculas antes de guardar en la base de datos
+            $pacientData = [
+                'ci' => strtoupper($request->input('ci')),
+                'nombre' => strtoupper($request->input('nombre')),
+                'paterno' => strtoupper($request->input('paterno')),
+                'materno' => strtoupper($request->input('materno')),
+                'celular' => $request->input('celular'),
+                'edad' => $edad,
+                'sexo' => $request->input('sexo'),
+                'estadocivil' => $request->input('estadocivil'),
+                'fechanac' => $request->input('fechanac'),
+                'direccion' => strtoupper($request->input('direccion')),
+                'observaciones' => strtoupper($request->input('observaciones'))
+            ];
+            $pacient->update($pacientData);
+    
+            return redirect()->route('paciente.pacients.edit', $pacient)
+                ->with('success', 'Datos actualizados correctamente');
+        } catch (\Exception $e) {
+            return redirect()->route('paciente.pacients.edit', $pacient)
+                ->with('error', 'Error al actualizar los datos. Detalles: ' . $e->getMessage());
+        }
+    
+    }
+    private function calcularEdad($fechaNacimiento)
+    {
+        $fechaNacimiento = new Carbon($fechaNacimiento);
+        $hoy = Carbon::now();
+        return $fechaNacimiento->diffInYears($hoy);
     }
 
     /**

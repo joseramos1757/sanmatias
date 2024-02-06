@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('ci');
             $table->string('nombre',45);
-            $table->string('paterno',45);
+            $table->string('paterno',45)->nullable();
             $table->string('materno',45);
             $table->string('especialidad',75);
             $table->integer('celular');

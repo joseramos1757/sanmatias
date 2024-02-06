@@ -16,15 +16,15 @@ return new class extends Migration
             $table->integer('ci');
             $table->string('nombre',45);
             $table->string('paterno',45);
-            $table->string('materno',45);
-            $table->integer('edad');
+            $table->string('materno',45)->nullable();
             $table->string('sexo',45);
             $table->string('estadocivil',45);
             $table->string('ocupacion',45);
             $table->integer('celular');
+            $table->integer('edad');
             $table->date('fechanac');
             $table->string('direccion',150);
-            $table->string('observaciones');
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }
