@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Paciente;
 use Carbon\Carbon;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PacienteController extends Controller
 {
@@ -14,7 +15,8 @@ class PacienteController extends Controller
      */
     public function index(Request $request)
     {
-        $pacient =Paciente::all();
+           // Obtiene todos los pacientes ordenados por fecha de creación descendente
+    $pacient = Paciente::orderBy('updated_at', 'desc')->get();
             // Verifica si se ha enviado un parámetro de búsqueda
     if ($request->has('carnet')) {
         // Realiza la búsqueda solo si se proporciona un carné
@@ -25,9 +27,9 @@ class PacienteController extends Controller
         $message = (count($pacient) === 0 && $request->has('carnet'))
         ? 'NO EXISTE PACIENTE CON ESE NUMERO DE CARNET'
         : null;
-
         return view('paciente.pacients.index',compact('pacient','message'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -81,7 +83,11 @@ class PacienteController extends Controller
         'observaciones' => strtoupper($request->input('observaciones'))
     ];
         $pacient = Paciente::create($pacientData);
-        return redirect()->route('paciente.pacients.edit' , $pacient);
+                // Mostrar SweetAlert success después de crear el paciente
+                Alert::success('Éxito', 'Paciente registrado correctamente');
+
+        
+        return redirect()->route('paciente.pacients.index');
     }
 
     /**
@@ -130,7 +136,7 @@ class PacienteController extends Controller
             'observaciones' => 'nullable'
         ]);
     
-        try {
+       
             // Convertir a mayúsculas antes de guardar en la base de datos
             $pacientData = [
                 'ci' => strtoupper($request->input('ci')),
@@ -146,15 +152,12 @@ class PacienteController extends Controller
                 'observaciones' => strtoupper($request->input('observaciones'))
             ];
             $pacient->update($pacientData);
+                          // Mostrar SweetAlert success después de crear el paciente
+            alert()->success('Éxito', 'Datos actualizados correctamente');
+            return redirect()->route('paciente.pacients.index');
+
     
-            return redirect()->route('paciente.pacients.edit', $pacient)
-                ->with('success', 'Datos actualizados correctamente');
-        } catch (\Exception $e) {
-            return redirect()->route('paciente.pacients.edit', $pacient)
-                ->with('error', 'Error al actualizar los datos. Detalles: ' . $e->getMessage());
         }
-    
-    }
     private function calcularEdad($fechaNacimiento)
     {
         $fechaNacimiento = new Carbon($fechaNacimiento);

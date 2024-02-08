@@ -22,7 +22,7 @@
                     </div>
       
                   <div class="sm:col-span-4 justify-center">
-                      {!! Form::label('nombre', 'NOMBRE(S):', ['class' => 'text-uppercase','block text-sm font-semibold text-gray-600']) !!}
+                    {!! Form::label('paterno', 'NOMBRE(S):', ['class' => 'block text-sm font-semibold text-gray-600']) !!}
                       {!! Form::text('nombre', null, ['class' => 'w-full mt-1 p-2 border rounded-md uppercase-input', 'required']) !!}
        
                     </div>
@@ -54,7 +54,7 @@
                   <div class="sm:col-span-8 justify-center">
                       {!! Form::label('direccion', 'DIRECCIÓN:', ['class' => 'block text-sm font-semibold text-gray-600']) !!}
                       {!! Form::text('direccion', null, ['class' => 'w-full mt-1 p-2 border rounded-md uppercase-input', 'required']) !!}
-                
+
                   </div>
 
       

@@ -2,8 +2,8 @@
 
   <div class="container mx-auto mt-6">
     <div class="w-full px-6 py-4 rounded-lg bg-white">
-      <div class="font-bold text-2 text-center text-2xl mt-2 mb-2">PACIENTES REGISTRADOS</div>
-      <div class="w-full px-6 py-4 rounded-lg bg-white mb-6">
+      <div class="font-bold text-2 text-center text-3xl mt-2 ">PACIENTES REGISTRADOS</div>
+      <div class="w-full px-6 py-4 rounded-lg bg-white mb-0 ">
         <a href="{{route('paciente.pacients.create')}}" class="inline-block bg-green-700 px-4 py-2 rounded-md items-center">
           <button class="text-white text-center">REGISTRAR PACIENTE NUEVO</button></a>
     </div>

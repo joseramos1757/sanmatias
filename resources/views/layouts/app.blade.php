@@ -39,6 +39,7 @@
         </div>
         @stack('modals')
         @livewireScripts
+        @include('sweetalert::alert')
     </body>
         @livewire('footer')
 </html>

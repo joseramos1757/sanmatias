@@ -9,7 +9,7 @@
           {!! Form::model($pacient,['route' => ['paciente.pacients.update', $pacient], 'method'=>'put', 'class' => 'bg-white px-8 pt-6 pb-8 mb-4']) !!}
           <div class="mb-4">
               <div class="mt-2 mb-6 font-semibold text-3xl text-gray-800 leading-tight w-full justify-center">
-                  <center><h1>FORMULARIO DE REGISTRO DE PACIENTES</h1></center>
+                  <center><h1>ACTUALIZACIÓN DE REGISTRO DE PACIENTES</h1></center>
               </div>
       
               <div class="grid grid-flow-row sm:grid-flow-col gap-3 ">
@@ -100,7 +100,7 @@
           </div>
       
           <div class="flex items-center mt-8">
-              {!! Form::submit('REGISTRAR PACIENTE', ['class' => 'bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline']) !!}
+              {!! Form::submit('ACTUALIZAR REGISTRO', ['class' => 'bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline']) !!}
           </div>
       {!! Form::close() !!}            
           
